@@ -27,7 +27,7 @@ class Sqs(object):
         return message
 
     def check_message(self,message):
-        return message.has_key('Messages')
+        return 'Messages' in message
 
     def get_receipt_handle(self,message):
         return message['ReceiptHandle']
@@ -40,7 +40,7 @@ class Sqs(object):
         return response
 
     def get_message_body(self,message):
-        return json.loads(message['Body'])
+        return json.loads(message['Messages'][0]['Body'])
 
     def get_value(self,message_body,key):
         return message_body[key]

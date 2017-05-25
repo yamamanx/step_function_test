@@ -20,8 +20,8 @@ def lambda_handler(event, context):
             response = sqs.send_message(loop_count)
             logger.info(response)
 
-            return event
+        return event
 
     except Exception as e:
-        slack.send_message('test:' + traceback.format_exc(sys.exc_info()[2]), "#error")
-        logger.error(traceback.format_exc(sys.exc_info()[2]))
+        slack.send_message('test:' + traceback.format_exc(), "#error")
+        logger.error(traceback.format_exc())

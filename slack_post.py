@@ -22,7 +22,7 @@ def lambda_handler(event, context):
             process_no = sqs.get_value(message_body,'process_no')
 
             slack.send_message(SLACK_MESSAGE.format(
-                val_process_no = process_no
+                val_process_no = str(process_no)
             ), "#notify")
 
             return event
@@ -31,5 +31,5 @@ def lambda_handler(event, context):
             slack.send_message('no queue', "#notify")
 
     except Exception as e:
-        slack.send_message('test:' + traceback.format_exc(sys.exc_info()[2]), "#error")
-        logger.error(traceback.format_exc(sys.exc_info()[2]))
+        slack.send_message('test:' + traceback.format_exc(), "#error")
+        logger.error(traceback.format_exc())
