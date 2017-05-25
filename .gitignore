@@ -3,3 +3,5 @@
 error.log*
 info.log*
 requests*
+*.zip
+
