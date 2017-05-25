@@ -1,0 +1,5 @@
+.idea
+*.pyc
+error.log*
+info.log*
+requests*
