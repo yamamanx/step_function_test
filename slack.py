@@ -8,7 +8,7 @@ class Slack(object):
     def __init__(self):
         self.url = os.environ['SLACK_URL']
 
-    def sendMessage(self,content,channel):
+    def send_message(self,content,channel):
         payload_dic = {
             "text": content,
             "channel": channel,
